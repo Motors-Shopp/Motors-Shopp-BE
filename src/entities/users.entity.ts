@@ -36,6 +36,9 @@ class User {
   bio: string;
 
   @Column()
+  user_picture: string;
+
+  @Column()
   is_seller: boolean;
 
   @Column()

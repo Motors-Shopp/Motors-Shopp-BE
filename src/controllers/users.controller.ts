@@ -21,6 +21,7 @@ export const createUserController = async (req: Request, res: Response) => {
       is_seller,
       is_client,
       password,
+      user_picture,
       address: { street, number, complement, district, state },
     } = req.body;
 
@@ -34,6 +35,7 @@ export const createUserController = async (req: Request, res: Response) => {
       is_seller,
       is_client,
       password,
+      user_picture,
       address: { street, number, complement, district, state },
     });
 
@@ -60,6 +62,7 @@ export const updateUserController = async (req: Request, res: Response) => {
       birthdate,
       bio,
       password,
+      user_picture,
       address: { street, number, complement, district, state },
     } = req.body;
 
@@ -72,6 +75,7 @@ export const updateUserController = async (req: Request, res: Response) => {
       birthdate,
       bio,
       password,
+      user_picture,
       address: { street, number, complement, district, state },
     });
 

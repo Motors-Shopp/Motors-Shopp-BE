@@ -6,6 +6,7 @@ import {
   postCommentsService,
   pacthCommentsService,
   deleteCommentsServiceById,
+  getVehiclesCommentsService,
 } from "@services/comments.services";
 
 export const getCommentsController = async (
@@ -15,6 +16,17 @@ export const getCommentsController = async (
   const comments = await getCommentsService();
   return res.status(200).json(instanceToPlain(comments));
 };
+
+export const getVehiclesCommentsController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const id = req.params.id;
+
+  const comments = await getVehiclesCommentsService(id);
+  return res.status(200).json(instanceToPlain(comments));
+};
+
 
 export const getCommentsControllerByID = async (
   req: Request,

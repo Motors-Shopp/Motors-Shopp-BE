@@ -14,7 +14,7 @@ export const ensureAuthMiddleware = async (
         throw new AppError(401, 'Necessário autenticação.');
     }
 
-    token = token.split(' ')[1];
+    token = token.split(' ')[0];
 
     jwt.verify(
         token,

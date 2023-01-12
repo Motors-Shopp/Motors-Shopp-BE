@@ -13,6 +13,7 @@ export interface IUser {
   is_active?: boolean;
   password: string;
   address: IAddress;
+  user_picture: string,
   vehicles?: Array<object>;
 }
 
@@ -20,6 +21,7 @@ export interface IUserRequest {
   name: string;
   email: string;
   cpf: string;
+  user_picture: string,
   cellphone: string;
   birthdate: string;
   bio: string;
@@ -39,6 +41,7 @@ export interface IUserUpdate {
   birthdate?: string;
   bio?: string;
   password?: string;
+  user_picture: string,
   address: IAddressUpdate;
   vehicles?: Array<object>;
 }

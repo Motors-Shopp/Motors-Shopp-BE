@@ -1,12 +1,36 @@
 import AppDataSource from "../data-source";
 import Comment from "@entities/comments.entity";
+import Vehicle from "@entities/vehicles.entity";
 import { date } from "yup";
+import { AppError } from "@errors/appError";
+
 import { v4 as uuid } from "uuid";
 
 export const getCommentsService = async (): Promise<any> => {
   const commentRepository = AppDataSource.getRepository(Comment);
   const comment = await commentRepository.find();
   return comment;
+};
+
+export const getVehiclesCommentsService = async (id:string): Promise<any> => {
+  const commentRepository = AppDataSource.getRepository(Comment);
+  const vehicleRepository = AppDataSource.getRepository(Vehicle);
+  const comment = await commentRepository.find();
+  const vehicle = await vehicleRepository.findOneBy({ id: id });
+
+  if (!vehicle) throw new AppError(404, "Vehicle not found.");
+
+  let dados = []
+
+  for (let i = 0; i < comment.length; i++) {
+     
+     if(comment[i].vehicle.id === id){
+      dados.push(comment[i])
+    }
+    
+  }
+
+  return dados;
 };
 
 export const getCommentsServiceById = async ({ id }: any): Promise<any> => {

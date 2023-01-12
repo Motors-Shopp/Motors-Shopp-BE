@@ -16,6 +16,7 @@ export const createUserService = async ({
   bio,
   is_seller,
   is_client,
+  user_picture,
   password,
   address: { street, number, complement, district, state },
 }: IUserRequest) => {
@@ -70,6 +71,7 @@ export const createUserService = async ({
     is_seller,
     is_client,
     password,
+    user_picture,
   });
 
   newUser.address = createAdress;
@@ -88,6 +90,7 @@ export const updateUserService = async ({
   birthdate,
   bio,
   password,
+  user_picture,
   address: { street, number, complement, district, state },
 }: IUserUpdate) => {
   const userRepository = AppDataSource.getRepository(User);
